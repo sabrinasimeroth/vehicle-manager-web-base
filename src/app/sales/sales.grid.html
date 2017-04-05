@@ -1,0 +1,33 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Customer Name</th>
+      <th>Vehicle</th>
+      <th>Invoiced?</th>
+      <th>Paid?</th>
+      <th>Sales Price</th>
+      <th width="1%"></th>
+      <th width="1%"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="sale in salesGridCtrl.sales">
+      <td>
+        {{sale.firstName}}
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <a ui-sref="sales.detail({ id: 1 })" class="bt bt-primary">
+          <i class="glyphicon glyphicon-edit"></i>
+        </a>
+      </td>
+      <td>
+        <a href="" class="bt bt-primary">
+          <i class="glyphicon glyphicon-trash"></i>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
