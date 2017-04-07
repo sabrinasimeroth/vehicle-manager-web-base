@@ -5,20 +5,63 @@
         .module('app.sales')
         .controller('SalesDetailController', SalesDetailController);
 
-    SalesDetailController.$inject = ['salesFactory', '$stateParams'];
+    SalesDetailController.$inject = ['salesFactory', 'customersFactory', 'vehiclesFactory', 'SweetAlert', '$stateParams'];
 
     /* @ngInject */
-    function SalesDetailController(salesFactory, $stateParams) {
+    function SalesDetailController(salesFactory, customersFactory, vehiclesFactory, SweetAlert, $stateParams) {
         var vm = this;
+
+        vm.save = save;
 
         activate();
 
         function activate(){
-          salesFactory
-            .getById($stateParams.id)
-            .then(function(sale){
-              vm.sale = sale;
-            });
+          var saleId = $stateParams.id
+
+          customersFactory
+            .getAll()
+            .then(function(customers){
+              vm.customers = customers;
+            })
+
+          vehiclesFactory
+            .getAll()
+            .then(function(vehicles){
+              vm.vehicles = vehicles;
+            })
+
+          if(saleId){
+            salesFactory
+              .getById(saleId)
+              .then(function(sale){
+                vm.sale = sale;
+              })
+              .catch(function(error){
+                alert(error);
+              });
+          }
+        }
+
+        function save(){
+          var saleId = $stateParams.id;
+
+          vm.sale.customerId = vm.selectedCustomer.customerId;
+          vm.sale.vehicleId = vm.selectedVehicle.vehicleId;
+
+          if(saleId){
+            salesFactory
+              .update(vm.sale.saleId, vm.sale)
+              .then(function(){
+                SweetAlert.swal('Sale Saved!', 'You are on fire today!', 'success');
+              });
+          } else {
+            salesFactory
+              .create(vm.sale)
+              .then(function(){
+                SweetAlert.swal('Sale Saved!', 'You get a raise!', 'success');
+              });
+          }
+
         }
     }
 })();

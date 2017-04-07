@@ -1,3 +1,7 @@
+<button ui-sref="sales.detail" class="btn btn-primary pull-right">
+  <i class="glyphicon glyphicon-plus"></i> Add Sale
+</button>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -13,18 +17,27 @@
   <tbody>
     <tr ng-repeat="sale in salesGridCtrl.sales">
       <td>
-        {{sale.firstName}}
+        {{sale.customerName}}
       </td>
-      <td></td>
-      <td></td>
-      <td></td>
       <td>
-        <a ui-sref="sales.detail({ id: 1 })" class="bt bt-primary">
+        {{sale.vehicleName}}
+      </td>
+      <td>
+        {{sale.invoiceDate | date}}
+      </td>
+      <td>
+        {{sale.paymentReceivedDate | date}}
+      </td>
+      <td>
+        {{sale.salePrice | currency: "$"}}
+      </td>
+      <td>
+        <a ui-sref="sales.detail({ id: sale.saleId })" class="btn btn-primary">
           <i class="glyphicon glyphicon-edit"></i>
         </a>
       </td>
       <td>
-        <a href="" class="bt bt-primary">
+        <a href="" class="btn btn-danger">
           <i class="glyphicon glyphicon-trash"></i>
         </a>
       </td>

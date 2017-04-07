@@ -1,11 +1,15 @@
+<button ui-sref="vehicles.detail" class="btn btn-primary pull-right">
+  <i class="glyphicon glyphicon-plus"></i> Add Vehicle
+</button>
+
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Make</th>
       <th>Model</th>
+      <th>Type</th>
       <th>Year</th>
       <th>Color</th>
-      <th>Type</th>
       <th>Price</th>
       <th width="1%"></th>
       <th width="1%"></th>
@@ -13,19 +17,17 @@
   </thead>
   <tbody>
     <tr ng-repeat="vehicle in vehiclesGridCtrl.vehicles">
-      <td>
-        {{vehicle.firstName}}
-      </td>
+      <td></td>
       <td></td>
       <td></td>
       <td></td>
       <td>
-        <a ui-sref="vehicles.detail({ id: 1 })" class="bt bt-primary">
+        <a ui-sref="vehicles.detail({ id: vehicle.vehicleId })" class="btn btn-danger">
           <i class="glyphicon glyphicon-edit"></i>
         </a>
       </td>
       <td>
-        <a href="" class="bt bt-primary">
+        <a href="" class="btn btn-primary">
           <i class="glyphicon glyphicon-trash"></i>
         </a>
       </td>

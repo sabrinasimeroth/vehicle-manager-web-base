@@ -4,6 +4,9 @@
     angular
         .module('app', [
           'ui.router',
+          'ui.select',
+          'ngSanitize',
+          'oitozero.ngSweetAlert',
           'app.dashboard',
           'app.customers',
           'app.sales',

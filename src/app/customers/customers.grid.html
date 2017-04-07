@@ -1,9 +1,13 @@
+<button ui-sref="customers.detail" class="btn btn-primary pull-right">
+  <i class="glyphicon glyphicon-plus"></i> Add Customer
+</button>
+
 <table class="table table-striped">
   <thead>
     <tr>
       <th>First Name</th>
       <th>Last Name</th>
-      <th>Email</th>
+      <th>Email Address</th>
       <th>Telephone</th>
       <th width="1%"></th>
       <th width="1%"></th>
@@ -24,12 +28,12 @@
         {{customer.telephone}}
       </td>
       <td>
-        <a ui-sref="customers.detail({ id: 1 })" class="bt bt-primary">
+        <a ui-sref="customers.detail({ id: customer.customerId })" class="btn btn-primary">
           <i class="glyphicon glyphicon-edit"></i>
         </a>
       </td>
       <td>
-        <a href="" class="bt bt-primary">
+        <a ng-click="customersGridCtrl.remove(customer)" class="btn btn-danger">
           <i class="glyphicon glyphicon-trash"></i>
         </a>
       </td>
