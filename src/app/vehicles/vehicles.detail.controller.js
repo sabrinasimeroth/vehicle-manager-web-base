@@ -5,10 +5,10 @@
         .module('app.vehicles')
         .controller('VehiclesDetailController', VehiclesDetailController);
 
-    VehiclesDetailController.$inject = ['vehiclesFactory', '$stateParams'];
+    VehiclesDetailController.$inject = ['vehiclesFactory', 'SweetAlert', '$stateParams'];
 
     /* @ngInject */
-    function VehiclesDetailController(vehiclesFactory, $stateParams) {
+    function VehiclesDetailController(vehiclesFactory, SweetAlert, $stateParams) {
         var vm = this;
 
         vm.save=save;
@@ -46,7 +46,6 @@
                 SweetAlert.swal('Vehicles Saved!', 'Now sell it!', 'success');
               });
           }
-
         }
     }
 })();

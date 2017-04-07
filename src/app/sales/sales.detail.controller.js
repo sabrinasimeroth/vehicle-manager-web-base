@@ -39,6 +39,8 @@
               .catch(function(error){
                 alert(error);
               });
+          } else {
+            vm.sale = {};
           }
         }
 

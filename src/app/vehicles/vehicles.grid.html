@@ -17,17 +17,31 @@
   </thead>
   <tbody>
     <tr ng-repeat="vehicle in vehiclesGridCtrl.vehicles">
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>
+        {{vehicle.make}}
+      </td>
+      <td>
+        {{vehicle.model}}
+      </td>
+      <td>
+        {{vehicle.vehicleType}}
+      </td>
+      <td>
+        {{vehicle.year}}
+      </td>
+      <td>
+        {{vehicle.color}}
+      </td>
+      <td>
+        {{vehicle.retailPrice | currency: '$'}}
+      </td>
       <td>
         <a ui-sref="vehicles.detail({ id: vehicle.vehicleId })" class="btn btn-danger">
           <i class="glyphicon glyphicon-edit"></i>
         </a>
       </td>
       <td>
-        <a href="" class="btn btn-primary">
+        <a ng-click="vehiclesGridCtrl.remove(vehicle)" class="btn btn-primary">
           <i class="glyphicon glyphicon-trash"></i>
         </a>
       </td>

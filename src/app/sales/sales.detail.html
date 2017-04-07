@@ -7,7 +7,7 @@
     <div class="col-xs-6">
       <div class="form-group">
         <label for="">Customer</label>
-        <ui-select ng-model="salesDetailCtrl.sale.selectedCustomer" theme="bootstrap">
+        <ui-select ng-model="salesDetailCtrl.selectedCustomer" theme="bootstrap">
             <ui-select-match placeholder="Select or search a customer in the list...">{{$select.selected.firstName}} {{$select.selected.lastName}}</ui-select-match>
             <ui-select-choices repeat="customer in salesDetailCtrl.customers | filter: $select.search">
               <div ng-bind-html="customer.firstName + ' ' + customer.lastName | highlight: $select.search"></div>
@@ -19,7 +19,7 @@
     <div class="col-xs-6">
       <div class="form-group">
         <label for="">Vehicle</label>
-        <ui-select ng-model="salesDetailCtrl.sale.selectedVehicle" theme="bootstrap">
+        <ui-select ng-model="salesDetailCtrl.selectedVehicle" theme="bootstrap">
             <ui-select-match placeholder="Select or search a vehicle in the list...">{{$select.selected.year}} {{$select.selected.make}} {{$select.selected.model}}</ui-select-match>
             <ui-select-choices repeat="vehicle in salesDetailCtrl.vehicles | filter: $select.search">
               <div ng-bind-html="vehicle.make + ' ' + vehicle.model | highlight: $select.search"></div>
