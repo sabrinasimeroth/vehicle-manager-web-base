@@ -12,7 +12,7 @@
           'app.sales',
           'app.vehicles'
         ])
-        .value('apiUrl', 'http://localhost:64929/api/')
+        .value('apiUrl', 'https://ss-vehicle-api.azurewebsites.net/api/')
         .config(function($stateProvider, $urlRouterProvider){
           $urlRouterProvider.otherwise('/dashboard');
 
